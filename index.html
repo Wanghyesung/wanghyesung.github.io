@@ -249,7 +249,10 @@ html[data-theme="dark"] .skip:focus{background:#192430}
   border-top: 1px solid var(--line);
   color: var(--ink);
 }
-.project-study h4 { margin: 0 0 15px; font-size: 19px; line-height: 1.4; letter-spacing: -.025em; }
+.project-study > summary { min-height: 44px; gap: 12px; }
+.project-study[open] > summary { margin-bottom: 12px; }
+.project-study > summary:hover { color: var(--teal); }
+.project-study > summary h4 { margin: 0; font-size: 19px; line-height: 1.4; letter-spacing: -.025em; }
 .project-study dl { display: grid; grid-template-columns: max-content minmax(0,1fr); gap: 11px 12px; align-items: start; margin: 0 0 15px; }
 .project-study dt { margin: 1px 0 0; padding: 2px 8px; border: 1px solid var(--line); border-radius: 3px; font-size: 14px; font-weight: 700; line-height: 1.4; color: var(--muted); }
 .project-study dt:nth-of-type(2) { color: var(--teal); background: var(--study-fill); }
@@ -379,12 +382,12 @@ function frustumDiagram() {
 }
 
 function studiesHTML(p) {
-  return (projectStudies[p.id] || []).map(study => `<section class="project-study">
-    <h4>${study.title}</h4>
+  return (projectStudies[p.id] || []).map(study => `<details class="project-study">
+    <summary><h4>${study.title}</h4></summary>
     <dl><dt>문제</dt><dd>${study.problem}</dd><dt>해결</dt><dd>${study.solution}</dd></dl>
     ${study.kind === 'frustum' ? frustumDiagram() : ''}
     ${comparison(study)}
-  </section>`).join('');
+  </details>`).join('');
 }
 document.querySelector('#project-grid').innerHTML=projects.map(p=>`<article class="project-card" id="work-${p.id}" data-type="${p.type}">${thumb(p)}<div class="project-body"><span class="project-meta">${p.year} · ${p.team}</span><h3>${p.name}</h3><p>${p.desc}</p><p><b>담당</b> · ${p.role}</p><div class="project-techs">${miniTechs(p.type==='cs'?['Unity','C#']:(p.id==='maple'||p.id==='dark')?['DirectX 11','C++']:['C++'])}<span>${p.tech.filter(t=>!['C++','C#','Unity','Unity 3D','DirectX 11'].includes(t)).map(t=>`<span class="tag">${t}</span>`).join('')}</span></div><div class="quick">${link(p.video,p.service,'플레이 영상')}${link(p.git,'github',p.server?'클라이언트':'GitHub')}${p.server?link(p.server,'github','서버'):''}${p.id==='orbital'?link('https://wanghyesung.itch.io/orbital','itch','itch.io 공개 · 플레이'):''}</div>${studiesHTML(p)}</div></article>`).join('');
 
