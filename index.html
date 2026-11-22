@@ -262,11 +262,7 @@ html[data-theme="dark"] .skip:focus{background:#192430}
 .perf-track i { display: block; height: 100%; border-radius: inherit; background: var(--muted); }
 .perf-row.after .perf-track i { background: var(--teal); }
 .perf-value { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.study-metric p, .study-detail p, .study-detail ol { margin: 9px 0 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
-.study-detail { margin-top: 9px; }
-.study-detail summary { color: var(--teal); font-size: 14px; font-weight: 650; padding: 7px 0; cursor: pointer; }
-.study-detail ol { padding-left: 1.35em; }
-.study-detail li + li { margin-top: 4px; }
+.study-metric p { margin: 9px 0 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
 .frustum-map { margin: 6px 0 15px; padding: 10px; border: 1px solid var(--line); border-radius: 4px; }
 .frustum-stage { height: 132px; position: relative; max-width: 470px; margin: 0 auto; }
 .view-cone { position: absolute; inset: 0; clip-path: polygon(21% 46%,80% 3%,80% 97%,21% 54%); background: var(--teal); }
@@ -336,7 +332,6 @@ const projectStudies = {
     solution: '전장을 격자로 나눠 탄환 주변의 물체만 후보로 골랐습니다. 셀별 후보는 연속 배열(CSR)에 모아 Burst Job으로 나눠 검사했습니다.',
     metric: 'Update + LateUpdate 합산 시간', labels: ['개선 전', '개선 후'], values: [17.09, 6.38], unit: 'ms', gain: '63% 단축',
     scope: '탄환 4,000발 · 장애물 70개 · 몬스터 20마리. 자체 충돌 시스템의 이동, 데이터 준비, 판정, 결과 회수를 포함한 시간입니다.',
-    detail: '충돌 후보와 실행 시점', kind: 'grid'
   }],
   maple: [{
     title: '맵 전환을 위한 병렬 로더 구현',
@@ -344,7 +339,6 @@ const projectStudies = {
     solution: '파일 하나를 로딩 작업 하나로 만들어 큐에 넣고, 미리 실행한 워커 스레드 4개가 다음 작업을 꺼내 동시에 처리하는 로더를 구현했습니다.',
     metric: '맵 리소스 로딩 시간', labels: ['순차 로딩', '병렬 로딩'], values: [3213, 798], unit: 'ms', gain: '75% 단축',
     scope: '동일한 텍스처·오디오의 로딩 시간을 비교했습니다.',
-    detail: '로딩 완료 후 맵에 입장하는 과정', kind: 'loader'
   }],
   dark: [{
     title: '프러스텀 컬링으로 화면 밖 물체 제외',
@@ -384,21 +378,12 @@ function frustumDiagram() {
   </figure>`;
 }
 
-function studyDetail(study) {
-  if (!study.detail) return '';
-  const detail = study.kind === 'grid'
-    ? '<p>반발력과 마찰이 필요 없는 탄환에는 도형의 겹침만 검사했습니다. Update 초반에 판정을 예약하고, 다른 갱신 작업을 진행한 뒤 LateUpdate 후반에 결과를 회수했습니다.</p>'
-    : '<ol><li>DirectX 클라이언트가 다음 맵의 텍스처와 오디오를 작업 큐에 등록합니다.</li><li>워커 4개가 파일을 읽는 동안 클라이언트는 로딩 화면을 표시합니다.</li><li>남은 작업이 0개가 되면 로딩을 마치고 IOCP 서버에 맵 입장을 알립니다.</li></ol>';
-  return `<details class="study-detail"><summary>${study.detail}</summary><div>${detail}</div></details>`;
-}
-
 function studiesHTML(p) {
   return (projectStudies[p.id] || []).map(study => `<section class="project-study">
     <h4>${study.title}</h4>
     <dl><dt>문제</dt><dd>${study.problem}</dd><dt>해결</dt><dd>${study.solution}</dd></dl>
     ${study.kind === 'frustum' ? frustumDiagram() : ''}
     ${comparison(study)}
-    ${studyDetail(study)}
   </section>`).join('');
 }
 document.querySelector('#project-grid').innerHTML=projects.map(p=>`<article class="project-card" id="work-${p.id}" data-type="${p.type}">${thumb(p)}<div class="project-body"><span class="project-meta">${p.year} · ${p.team}</span><h3>${p.name}</h3><p>${p.desc}</p><p><b>담당</b> · ${p.role}</p><div class="project-techs">${miniTechs(p.type==='cs'?['Unity','C#']:(p.id==='maple'||p.id==='dark')?['DirectX 11','C++']:['C++'])}<span>${p.tech.filter(t=>!['C++','C#','Unity','Unity 3D','DirectX 11'].includes(t)).map(t=>`<span class="tag">${t}</span>`).join('')}</span></div><div class="quick">${link(p.video,p.service,'플레이 영상')}${link(p.git,'github',p.server?'클라이언트':'GitHub')}${p.server?link(p.server,'github','서버'):''}${p.id==='orbital'?link('https://wanghyesung.itch.io/orbital','itch','itch.io 공개 · 플레이'):''}</div>${studiesHTML(p)}</div></article>`).join('');
