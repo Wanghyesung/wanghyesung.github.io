@@ -241,83 +241,53 @@ html[data-theme="dark"] .skip:focus{background:#192430}
 .applied-skills b{display:block;min-width:0;font-size:14px;margin-bottom:5px;line-height:1.5}
 .applied-skills span{display:block;overflow-wrap:anywhere;word-break:normal}
 @media(max-width:650px){.applied-skills>div{font-size:14px}.applied-skills b{font-size:14px}}
-.perf-summary, .process-case {
-  --case-tint: color-mix(in srgb, var(--teal) 6%, var(--paper));
-  --case-track: color-mix(in srgb, var(--muted) 13%, var(--paper));
-  container-type: inline-size;
-}
-.perf-summary {
-  margin: 20px 0 0;
-  padding: 16px 18px;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-}
-.perf-summary figcaption {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 4px 12px;
-  margin-bottom: 12px;
-  color: var(--ink);
-  font-size: 16px;
-  font-weight: 700;
-}
-.perf-summary figcaption strong { color: var(--teal); font-size: 20px; }
-.perf-row {
-  display: grid;
-  grid-template-columns: 4.4em minmax(20px,1fr) 5.4em;
-  align-items: center;
-  gap: 10px;
-  margin: 5px 0;
-  font-size: 14px;
+.project-study {
+  --study-fill: color-mix(in srgb,var(--teal) 5%,var(--paper));
+  --study-track: color-mix(in srgb,var(--muted) 16%,var(--paper));
+  padding-top: 18px;
+  margin-top: 20px;
+  border-top: 1px solid var(--line);
   color: var(--ink);
 }
-.perf-track { height: 7px; border-radius: 2px; background: var(--case-track); }
+.project-study h4 { margin: 0 0 15px; font-size: 19px; line-height: 1.4; letter-spacing: -.025em; }
+.project-study dl { display: grid; grid-template-columns: max-content minmax(0,1fr); gap: 11px 12px; align-items: start; margin: 0 0 15px; }
+.project-study dt { margin: 1px 0 0; padding: 2px 8px; border: 1px solid var(--line); border-radius: 3px; font-size: 14px; font-weight: 700; line-height: 1.4; color: var(--muted); }
+.project-study dt:nth-of-type(2) { color: var(--teal); background: var(--study-fill); }
+.project-study dd { margin: 0; font-size: 16px; line-height: 1.65; overflow-wrap: break-word; }
+.study-metric { margin: 0; padding: 13px 16px; background: var(--study-fill); border-left: 3px solid var(--teal); }
+.study-metric figcaption { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 4px 12px; margin-bottom: 9px; font-weight: 700; font-size: 15px; }
+.study-metric strong { color: var(--teal); font-size: 19px; }
+.perf-row { display: grid; grid-template-columns: 4.5em minmax(18px,1fr) 5.6em; align-items: center; gap: 8px; margin: 5px 0; font-size: 14px;}
+.perf-track { height: 6px; border-radius: 2px; background: var(--study-track); }
 .perf-track i { display: block; height: 100%; border-radius: inherit; background: var(--muted); }
 .perf-row.after .perf-track i { background: var(--teal); }
 .perf-value { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.perf-summary .perf-context { margin: 12px 0 0; font-size: 14px; line-height: 1.6; color: var(--muted); }
-.process-case { padding: 16px 0 3px; }
-.process-case p { margin: 0 0 14px; color: var(--ink); font-size: 16px; line-height: 1.65; }
-.process-case h4 { margin: 0 0 8px; font-size: 16px; color: var(--ink); }
-.process-flow {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 19px;
-  padding: 0;
-  margin: 0 0 14px;
-  list-style: none;
+.study-metric p, .study-detail p, .study-detail ol { margin: 9px 0 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+.study-detail { margin-top: 9px; }
+.study-detail summary { color: var(--teal); font-size: 14px; font-weight: 650; padding: 7px 0; cursor: pointer; }
+.study-detail ol { padding-left: 1.35em; }
+.study-detail li + li { margin-top: 4px; }
+.frustum-map { margin: 6px 0 15px; padding: 10px; border: 1px solid var(--line); border-radius: 4px; }
+.frustum-stage { height: 132px; position: relative; max-width: 470px; margin: 0 auto; }
+.view-cone { position: absolute; inset: 0; clip-path: polygon(21% 46%,80% 3%,80% 97%,21% 54%); background: var(--teal); }
+.view-cone::after { content: ''; position: absolute; inset: 0; clip-path: polygon(21.4% 46.6%,79.7% 4.1%,79.7% 95.9%,21.4% 53.4%); background: color-mix(in srgb,var(--teal) 15%,var(--paper)); }
+.camera-point { position: absolute; left: 12%; top: 45%; width: 18px; height: 13px; border: 2px solid var(--ink); border-radius: 2px; }
+.camera-point::after { content: ''; position: absolute; width: 6px; height: 10px; top: 0; right: -7px; background: var(--ink); clip-path: polygon(100% 0,100% 100%,0 70%,0 30%); }
+.frustum-stage small { position: absolute; top: 60%; left: 8%; font-size: 13px; color: var(--muted); }
+.view-object { display: flex; flex-direction: column; align-items: center; gap: 1px; position: absolute; transform: translateX(-50%); font-size: 13px; color: var(--ink); line-height: 1.35; font-weight: 600; }
+.view-object::before,.frustum-map figcaption i { content: ''; width: 13px; height: 13px; border-radius: 50%; background: var(--teal); border: 2px solid var(--teal); }
+.view-object.inside { left: 60%; top: 55%; }
+.view-object.boundary { left: 51%; top: 20%; }
+.view-object.outside { left: 88%; top: 15%; }
+.view-object.outside::before,.frustum-map figcaption .excluded { background: var(--paper); border: 2px dashed var(--muted); }
+.frustum-map figcaption { display: flex; justify-content: center; gap: 19px; margin-top: 4px; }
+.frustum-map figcaption span { display: inline-flex; gap: 6px; align-items: center; font-size: 13px; color: var(--muted); }
+.frustum-map figcaption i { width: 10px; height: 10px; }
+@media(max-width:600px) {
+  .project-study dl { gap: 10px 8px; }
+  .study-metric { padding: 12px; }
+  .perf-row { gap: 5px; }
 }
-.process-flow li {
-  position: relative;
-  padding: 10px 8px;
-  background: var(--case-tint);
-  border: 1px solid var(--line);
-  border-radius: 3px;
-  text-align: center;
-}
-.process-flow li + li::before {
-  position: absolute;
-  content: '→';
-  width: 19px;
-  left: -20px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--muted);
-}
-.process-flow b, .process-flow span { display: block; }
-.process-flow b { color: var(--ink); font-size: 15px; }
-.process-flow span { color: var(--muted); font-size: 14px; line-height: 1.5; }
-.process-case .case-observation { padding-top: 10px; margin-bottom: 0; border-top: 1px solid var(--line); }
-.process-case .case-observation b { margin-right: .45em; }
-@container (max-width: 340px) {
-  .process-flow { grid-template-columns: 1fr; gap: 14px; }
-  .process-flow li { display: flex; gap: 10px; align-items: baseline; text-align: left; }
-  .process-flow li + li::before { content: '↓'; top: -15px; left: 12px; transform: none; line-height: 14px; }
-  .perf-row { gap: 6px; }
-}
-
 </style>
 </head><body>
 <svg class="svgdefs" xmlns="http://www.w3.org/2000/svg"><symbol id="home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10H4V10M9 20v-7h6v7"/></symbol><symbol id="play" viewBox="0 0 24 24"><path d="m8 5 12 7-12 7z"/></symbol><symbol id="videos" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="4"/><path d="m10 8 6 4-6 4z"/></symbol><symbol id="projects" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol><symbol id="resume" viewBox="0 0 24 24"><path d="M5 3h10l4 4v14H5zM15 3v5h4M9 12h6M9 16h6"/></symbol><symbol id="essay" viewBox="0 0 24 24"><path d="M4 4h16v12H9l-5 4zM8 8h8M8 12h5"/></symbol><symbol id="pdf" viewBox="0 0 24 24"><path d="M5 3h10l4 4v14H5zM15 3v5h4M12 10v7m-3-3 3 3 3-3"/></symbol><symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol><symbol id="external" viewBox="0 0 24 24"><path d="M14 3h7v7m0-7L9 15M10 3H3v18h18v-7"/></symbol><symbol id="code" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6m8-12 6 6-6 6M14 3l-4 18"/></symbol><symbol id="chart" viewBox="0 0 24 24"><path d="M3 3v18h18M7 15l4-5 4 3 6-8"/></symbol><symbol id="people" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M16 4a3 3 0 0 1 0 6m2 3a5 5 0 0 1 3 5v3"/></symbol><symbol id="pin" viewBox="0 0 24 24"><path d="M19 10c0 6-7 11-7 11S5 16 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2"/></symbol><symbol id="calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 10h18"/></symbol><symbol id="mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></symbol><symbol id="phone" viewBox="0 0 24 24"><path d="m7 3 3 5-3 3a16 16 0 0 0 6 6l3-3 5 3-2 4C10 22 2 14 3 5z"/></symbol><symbol id="youtube" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="5" fill="#f03" stroke="none"/><path d="m10 8 6 4-6 4z" fill="white" stroke="none"/></symbol><symbol id="onedrive" viewBox="0 0 24 24"><path d="M3 17a5 5 0 0 1 2-9 7 7 0 0 1 13-1 5 5 0 0 1 2 10Z" fill="#0877c9" stroke="none"/><path d="m3 17 10-8 9 5a4 4 0 0 1-3 3Z" fill="#35adf0" stroke="none"/></symbol><symbol id="github" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.6.1.8-.2.8-.5v-2c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.7-1.3-1.7-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.3 1.8 1.3 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.4-5.5-6a4.7 4.7 0 0 1 1.2-3.2 4.4 4.4 0 0 1 .1-3.2s1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.5 4 18.5 4.3 18.5 4.3a4.4 4.4 0 0 1 .1 3.2 4.7 4.7 0 0 1 1.2 3.2c0 4.6-2.8 5.7-5.5 6 .5.4.9 1.1.9 2.2V22c0 .3.2.6.8.5A11.1 11.1 0 0 0 12 .9Z"/></symbol><symbol id="itch" viewBox="0 0 24 24"><path d="M3 4h18l2 5H1zM3 11v10h18V11M8 18v-5h8v5M8 15h3m-1.5-1.5v3m4-1.5h1"/></symbol></svg>
@@ -339,7 +309,7 @@ html[data-theme="dark"] .skip:focus{background:#192430}
 </main><footer class="footer"><span>© WANG HYESUNG <b>·</b> GAME CLIENT DEVELOPER</span><span>C++ · C# · Unity · DirectX</span></footer>
 <script>
 const drive='https://1drv.ms/f/c/d9470e8558d46727/IgAnZ9RYhQ5HIIDZ5jAAAAAAAY7Wpldd8bkGfqK_QxOR25E?e=kLGi9N';
-const projects=[{"id":"orbital","name":"ORBITAL","type":"cs","year":"2026.06 ~ 2026.09","team":"1인 개발","desc":"카드와 조커로 공격 조합을 만드는 3D 로그라이트 슈팅","role":"게임 기획 · 클라이언트 전반","tech":["Unity","C#","Burst","Job System","URP"],"video":"https://youtu.be/steticrGBRY?si=BxDzyRIH_49w2s2t","service":"youtube","git":"https://github.com/Wanghyesung/ECS","result":"63% 단축","resultLabel":"메인 갱신 시간","measurement":"17.09 → 6.38 ms","condition":"총알 4,000발 · 장애물 70개 · 몬스터 20마리. 자체 충돌 구조의 Update + LateUpdate 합으로, 이동·데이터 준비·Job 처리와 결과 회수를 포함합니다.","caseTitle":"자체 충돌 구조와 병렬화","paragraphs":["대량 탄막 장면에서 FixedUpdate가 한 프레임에 2회 실행되는 것을 확인했습니다. 반발력과 마찰이 필요 없는 게임 특성에 맞춰, 필요한 도형 판정만 수행하는 자체 충돌 시스템을 만들었습니다.","모든 충돌체를 비교하던 방식에서 주변 셀만 검사하는 공간 분할로 바꿨습니다. 셀별 후보를 연속 배열(CSR)로 정리해 Burst Job에 전달하고, Update 초반에 예약한 작업을 LateUpdate 후반에 회수하도록 조정했습니다."],"caseNote":"전수 대조 → 공간 분할 → Job·CSR → 실행 순서 조정으로 합산 시간을 약 63% 줄였습니다. 순수 충돌 연산이나 전체 프레임 시간의 감소율은 아닙니다.","resumeSummary":"자체 충돌 시스템, 공간 분할, Burst·Job 병렬 처리 구현"},{"id":"maple","name":"MapleStory Multiplayer","type":"cpp","year":"2025.03 ~ 2025.08","team":"1인 개발","desc":"싱글 플레이에서 여러 사용자가 함께하는 멀티플레이로","role":"서버 · 클라이언트 전담","tech":["C++","DirectX 11","IOCP","Protobuf"],"video":"https://1drv.ms/v/c/d9470e8558d46727/IQA_UfhiN4XeQqBJ93g41N7tAVYCxTB4Q3UZelvea2iNxJ8?e=JuCXLc","service":"onedrive","git":"https://github.com/Wanghyesung/MapleClient","server":"https://github.com/Wanghyesung/MapleServer","result":"75% 단축","resultLabel":"리소스 로딩 시간","measurement":"3,213 → 798 ms","condition":"텍스처·오디오의 순차 로딩과 고정 워커 스레드 풀을 사용한 병렬 로딩 비교 · 약 75% 단축","caseTitle":"멀티플레이 구현과 병렬 로딩","paragraphs":["IOCP 비동기 서버와 DirectX 클라이언트를 직접 구현하고 Transform 동기화를 연결했습니다. 메모리 풀로 할당한 메모리를 재사용하고, 짧은 임계 영역에는 ReadWrite SpinLock을 적용했습니다.","텍스처와 오디오를 하나씩 불러오던 작업을 스레드 풀의 작업 큐로 분배했습니다. 병렬 로딩 시간을 별도로 측정해 순차 로딩 대비 약 75% 단축한 결과를 확인했습니다."],"resumeSummary":"IOCP 서버·클라이언트 동기화 및 스레드 풀 병렬 로딩 구현"},{"id":"dark","name":"DarkSouls DirectX3D","type":"cpp","year":"2024.03 ~ 2024.07","team":"1인 개발","desc":"렌더링과 충돌 처리부터 직접 구현한 3D 액션 RPG 모작","role":"클라이언트 · 렌더링 · 충돌 처리","tech":["C++","DirectX 11","Frustum Culling","PhysX 5.0","Recast & Detour"],"video":"https://1drv.ms/v/c/d9470e8558d46727/IQBShbsPOFYYSKuibxMSLmObAWTLO_FL8DPUOcpxPnj-1wg?e=vzFhM5","service":"onedrive","git":"https://github.com/Wanghyesung/DX3D","result":"39% 향상","resultLabel":"PhysX 적용","measurement":"28 → 39 FPS","condition":"콜라이더 70개 비교 장면에서 측정한 결과입니다.","caseTitle":"렌더링·길찾기·충돌 처리","paragraphs":["DirectX 11 렌더링 파이프라인을 구현하고, Recast & Detour 길찾기와 카메라를 향하는 월드 UI 빌보드를 구성했습니다."],"reflection":"자체 OBB 방식에서 성능 문제가 나타나자 동료가 제안한 PhysX를 다시 검토해 적용했습니다. 충돌 이벤트를 게임 로직에 연결하고, 콜라이더 70개 장면에서 FPS가 28에서 39로 높아진 것을 확인했습니다.","cullingResult":"29% 향상","cullingLabel":"프러스텀 컬링","cullingMeasurement":"28 → 36 FPS","cullingCondition":"PhysX 비교와는 별도 장면에서 측정한 렌더링 개선 결과입니다.","culling":"카메라의 시야 밖 객체를 렌더링 대상에서 제외하는 프러스텀 컬링을 구현했습니다. 적용 전후를 비교한 장면에서 FPS가 28에서 36으로 향상됐습니다.","resumeSummary":"DirectX 11 렌더링, 프러스텀 컬링, PhysX 충돌 처리 구현"},{"id":"team","name":"Unity 팀 프로젝트","type":"cs","year":"2025.10 ~ 2026.02","team":"2인 팀","desc":"역할을 나누고 함께 완성한 Unity 3D 프로젝트","role":"게임 시스템 · 몬스터 AI","tech":["C#","Unity 3D","URP","Git"],"video":"https://1drv.ms/v/c/d9470e8558d46727/IQDAB8LE1JPlQZ-KlvgB3WAXAciaaNSYc6g8R6KgMERTU_Q?e=ZV35OC","service":"onedrive","git":"https://github.com/UnityMobile3D/UnityMobile3D","resumeSummary":"Unity 게임 시스템과 몬스터 AI 담당"},{"id":"dnf","name":"던전앤파이터 모작","type":"cpp","year":"2023.03 ~ 2023.05","team":"1인 개발","desc":"WinAPI로 쌓은 2D 게임 클라이언트 개발의 기초","role":"게임 클라이언트 개발","tech":["C++","WinAPI"],"video":"https://1drv.ms/v/c/d9470e8558d46727/IQAFenxcdiAKToSK0uQPs6H4AfMwG4wg6PFfCSXJz64FvQc?e=rh3mae","service":"onedrive","git":"https://github.com/Wanghyesung/WinapiDF","resumeSummary":"WinAPI 기반 2D 게임 클라이언트 구현"},{"id":"chat","name":"채팅 프로그램","type":"cpp","year":"2024.11 ~ 2025.02","team":"1인 개발","desc":"비동기 네트워크 구조를 익히기 위한 채팅 프로그램","role":"비동기 채팅 프로그램 개발","tech":["C++","IOCP"],"video":"https://1drv.ms/v/c/d9470e8558d46727/IQDSKxGldpzuRrTbyNprJfQpARpRypxOE_NVNtr1ff5FwsI?e=PR7GjA","service":"onedrive","git":"https://github.com/Wanghyesung/DXChattingServer","resumeSummary":"IOCP 기반 비동기 채팅 서버·클라이언트 구현"}];
+const projects=[{"id":"orbital","name":"ORBITAL","type":"cs","year":"2026.06 ~ 2026.09","team":"1인 개발","desc":"카드와 조커로 공격 조합을 만드는 3D 로그라이트 슈팅","role":"게임 기획 · 클라이언트 전반","tech":["Unity","C#","Burst","Job System","URP"],"video":"https://youtu.be/steticrGBRY?si=BxDzyRIH_49w2s2t","service":"youtube","git":"https://github.com/Wanghyesung/ECS","result":"63% 단축","resultLabel":"메인 갱신 시간","measurement":"17.09 → 6.38 ms","condition":"총알 4,000발 · 장애물 70개 · 몬스터 20마리. 자체 충돌 구조의 Update + LateUpdate 합으로, 이동·데이터 준비·Job 처리와 결과 회수를 포함합니다.","resumeSummary":"자체 충돌 시스템, 공간 분할, Burst·Job 병렬 처리 구현"},{"id":"maple","name":"MapleStory Multiplayer","type":"cpp","year":"2025.03 ~ 2025.08","team":"1인 개발","desc":"싱글 플레이에서 여러 사용자가 함께하는 멀티플레이로","role":"서버 · 클라이언트 전담","tech":["C++","DirectX 11","IOCP","Protobuf"],"video":"https://1drv.ms/v/c/d9470e8558d46727/IQA_UfhiN4XeQqBJ93g41N7tAVYCxTB4Q3UZelvea2iNxJ8?e=JuCXLc","service":"onedrive","git":"https://github.com/Wanghyesung/MapleClient","server":"https://github.com/Wanghyesung/MapleServer","result":"75% 단축","resultLabel":"리소스 로딩 시간","measurement":"3,213 → 798 ms","condition":"텍스처·오디오의 순차 로딩과 고정 워커 스레드 풀을 사용한 병렬 로딩 비교 · 약 75% 단축","resumeSummary":"IOCP 서버·클라이언트 동기화 및 스레드 풀 병렬 로딩 구현"},{"id":"dark","name":"DarkSouls DirectX3D","type":"cpp","year":"2024.03 ~ 2024.07","team":"1인 개발","desc":"렌더링과 충돌 처리부터 직접 구현한 3D 액션 RPG 모작","role":"클라이언트 · 렌더링 · 충돌 처리","tech":["C++","DirectX 11","Frustum Culling","PhysX 5.0","Recast & Detour"],"video":"https://1drv.ms/v/c/d9470e8558d46727/IQBShbsPOFYYSKuibxMSLmObAWTLO_FL8DPUOcpxPnj-1wg?e=vzFhM5","service":"onedrive","git":"https://github.com/Wanghyesung/DX3D","result":"39% 향상","resultLabel":"PhysX 적용","measurement":"28 → 39 FPS","condition":"콜라이더 70개 비교 장면에서 측정한 결과입니다.","cullingResult":"29% 향상","cullingLabel":"프러스텀 컬링","cullingMeasurement":"28 → 36 FPS","cullingCondition":"PhysX 비교와는 별도 장면에서 측정한 렌더링 개선 결과입니다.","resumeSummary":"DirectX 11 렌더링, 프러스텀 컬링, PhysX 충돌 처리 구현"},{"id":"team","name":"Unity 팀 프로젝트","type":"cs","year":"2025.10 ~ 2026.02","team":"2인 팀","desc":"역할을 나누고 함께 완성한 Unity 3D 프로젝트","role":"게임 시스템 · 몬스터 AI","tech":["C#","Unity 3D","URP","Git"],"video":"https://1drv.ms/v/c/d9470e8558d46727/IQDAB8LE1JPlQZ-KlvgB3WAXAciaaNSYc6g8R6KgMERTU_Q?e=ZV35OC","service":"onedrive","git":"https://github.com/UnityMobile3D/UnityMobile3D","resumeSummary":"Unity 게임 시스템과 몬스터 AI 담당"},{"id":"dnf","name":"던전앤파이터 모작","type":"cpp","year":"2023.03 ~ 2023.05","team":"1인 개발","desc":"WinAPI로 쌓은 2D 게임 클라이언트 개발의 기초","role":"게임 클라이언트 개발","tech":["C++","WinAPI"],"video":"https://1drv.ms/v/c/d9470e8558d46727/IQAFenxcdiAKToSK0uQPs6H4AfMwG4wg6PFfCSXJz64FvQc?e=rh3mae","service":"onedrive","git":"https://github.com/Wanghyesung/WinapiDF","resumeSummary":"WinAPI 기반 2D 게임 클라이언트 구현"},{"id":"chat","name":"채팅 프로그램","type":"cpp","year":"2024.11 ~ 2025.02","team":"1인 개발","desc":"비동기 네트워크 구조를 익히기 위한 채팅 프로그램","role":"비동기 채팅 프로그램 개발","tech":["C++","IOCP"],"video":"https://1drv.ms/v/c/d9470e8558d46727/IQDSKxGldpzuRrTbyNprJfQpARpRypxOE_NVNtr1ff5FwsI?e=PR7GjA","service":"onedrive","git":"https://github.com/Wanghyesung/DXChattingServer","resumeSummary":"IOCP 기반 비동기 채팅 서버·클라이언트 구현"}];
 const projectPriority=['orbital','maple','dark','team','dnf','chat'];
 projects.sort((a,b)=>projectPriority.indexOf(a.id)-projectPriority.indexOf(b.id));
 const icon=n=>`<svg aria-hidden="true"><use href="#${n}"/></svg>`;
@@ -359,85 +329,79 @@ document.querySelector('#explore').innerHTML=link('#projects','projects','프로
 document.querySelector('#home-videos').innerHTML=projects.slice(0,3).map(p=>`<article class="representative-card">${thumb(p)}<div class="representative-body"><div class="representative-title"><h3>${p.id==='orbital'?'ORBITAL':p.id==='maple'?'메이플서버':'다크소울'}</h3>${miniTechs(p.type==='cs'?['Unity','C#']:['DirectX 11','C++'])}</div><p>${p.role}</p><a class="video-direct" href="${p.video}" target="_blank" rel="noopener noreferrer" aria-label="${p.name} 영상 바로가기 — 새 창">${icon(p.service)}<span>영상 바로가기</span>${icon('external')}</a></div></article>`).join('');
 document.querySelector('#video-grid').innerHTML=projects.map(p=>`<article class="video-card">${thumb(p)}<div class="videotext"><h3>${p.name}</h3><p>${p.desc}</p><a class="videofoot" href="#${p.id}"><span class="video-tech-meta">${miniTechs(p.type==='cs'?['Unity','C#']:(p.id==='maple'||p.id==='dark')?['DirectX 11','C++']:['C++'])}<span>${p.team}</span></span><span style="display:flex;align-items:center;gap:7px">프로젝트${icon('arrow')}</span></a></div></article>`).join('');
 document.querySelector('#project-resources').innerHTML=link(drive,'onedrive','전체 자료')+portfolioLink('cs')+portfolioLink('cpp');
-const projectCases = {
-  "orbital": {
-    "title": "Update + LateUpdate 합산 시간",
-    "before": [
-      "개선 전",
-      17.09,
-      "17.09 ms"
-    ],
-    "after": [
-      "개선 후",
-      6.38,
-      "6.38 ms"
-    ],
-    "scope": "총알 4,000발 · 장애물 70개 · 몬스터 20마리",
-    "lead": "탄막이 몰릴 때 한 프레임에 FixedUpdate가 두 번 실행됐습니다. 반발력과 마찰이 필요 없는 탄환에는 별도의 도형 충돌 판정을 적용했습니다.",
-    "flowTitle": "충돌 판정 흐름",
-    "steps": [
-      [
-        "주변 셀 탐색",
-        "가까운 후보 선별"
-      ],
-      [
-        "연속 배열",
-        "셀별 후보를 CSR로 정리"
-      ],
-      [
-        "Burst Job",
-        "충돌 판정 병렬 실행"
-      ]
-    ],
-    "noteTitle": "실행 시점",
-    "note": "Update 초반에 작업을 예약하고 LateUpdate 후반에 결과를 회수했습니다. 위 측정값에는 이동과 데이터 준비, 작업 결과 회수 시간도 포함됩니다."
-  },
-  "maple": {
-    "title": "텍스처·오디오 로딩 시간",
-    "before": [
-      "순차 로딩",
-      3213,
-      "3,213 ms"
-    ],
-    "after": [
-      "병렬 로딩",
-      798,
-      "798 ms"
-    ],
-    "scope": "같은 리소스를 순차 로딩과 고정 워커 스레드 풀로 각각 측정",
-    "lead": "DirectX 클라이언트와 IOCP 비동기 서버를 직접 구현해 캐릭터의 위치와 회전을 동기화했습니다.",
-    "flowTitle": "병렬 로딩 흐름",
-    "steps": [
-      [
-        "텍스처·오디오",
-        "로딩 요청 생성"
-      ],
-      [
-        "작업 큐",
-        "요청을 큐에 등록"
-      ],
-      [
-        "고정 워커 풀",
-        "여러 스레드에서 로딩"
-      ]
-    ],
-    "noteTitle": "서버 메모리 관리",
-    "note": "메모리 풀로 할당 공간을 재사용하고, 짧은 임계 영역에는 읽기·쓰기 스핀락을 적용했습니다."
-  }
+const projectStudies = {
+  orbital: [{
+    title: '탄환 4,000발의 충돌 검사 줄이기',
+    problem: '탄환과 적이 늘수록 충돌체를 하나씩 대조하는 비용이 커졌습니다. 멀리 떨어져 서로 닿을 수 없는 물체까지 검사하고 있었습니다.',
+    solution: '전장을 격자로 나눠 탄환 주변의 물체만 후보로 골랐습니다. 셀별 후보는 연속 배열(CSR)에 모아 Burst Job으로 나눠 검사했습니다.',
+    metric: 'Update + LateUpdate 합산 시간', labels: ['개선 전', '개선 후'], values: [17.09, 6.38], unit: 'ms', gain: '63% 단축',
+    scope: '탄환 4,000발 · 장애물 70개 · 몬스터 20마리. 자체 충돌 시스템의 이동, 데이터 준비, 판정, 결과 회수를 포함한 시간입니다.',
+    detail: '충돌 후보와 실행 시점', kind: 'grid'
+  }],
+  maple: [{
+    title: '맵 전환을 위한 병렬 로더 구현',
+    problem: '다음 맵에 필요한 텍스처와 소리를 한 파일씩 불러왔습니다. 앞 파일이 끝나야 다음 파일을 읽을 수 있어 리소스 준비에 3.21초가 걸렸습니다.',
+    solution: '파일 하나를 로딩 작업 하나로 만들어 큐에 넣고, 미리 실행한 워커 스레드 4개가 다음 작업을 꺼내 동시에 처리하는 로더를 구현했습니다.',
+    metric: '맵 리소스 로딩 시간', labels: ['순차 로딩', '병렬 로딩'], values: [3213, 798], unit: 'ms', gain: '75% 단축',
+    scope: '동일한 텍스처·오디오의 로딩 시간을 비교했습니다.',
+    detail: '로딩 완료 후 맵에 입장하는 과정', kind: 'loader'
+  }],
+  dark: [{
+    title: '프러스텀 컬링으로 화면 밖 물체 제외',
+    problem: '카메라를 돌려 화면에서 사라진 물체도 렌더링 목록에 남아 있었습니다. 보이지 않는 물체까지 그리는 비용이 들었습니다.',
+    solution: '각 물체를 감싸는 구와 카메라 시야의 경계를 비교했습니다. 구 전체가 시야 밖에 있으면 그리기를 건너뛰고, 일부라도 경계에 걸치면 그렸습니다.',
+    metric: '렌더링 비교 장면', labels: ['컬링 전', '컬링 후'], values: [28, 36], unit: 'FPS', gain: '29% 향상',
+    scope: '같은 렌더링 장면에서 컬링 적용 전후를 비교했습니다.',
+    kind: 'frustum'
+  }, {
+    title: '충돌체가 많은 장면의 PhysX 전환',
+    problem: '물체 방향에 맞춰 회전하는 상자(OBB)로 충돌을 직접 판정했습니다. 충돌체 70개가 동작하는 장면에서는 초당 28프레임을 기록했습니다.',
+    solution: '동료가 제안한 PhysX를 같은 조건에서 다시 비교했습니다. 충돌 판정을 PhysX에 맡기고, 발생한 충돌 이벤트를 기존 게임 로직에 연결했습니다.',
+    metric: '충돌체 70개 비교 장면', labels: ['자체 OBB', 'PhysX'], values: [28, 39], unit: 'FPS', gain: '39% 향상',
+    scope: '프러스텀 컬링과 별도로 측정한 충돌 처리 사례입니다.',
+    kind: 'collision'
+  }]
 };
-function performanceChart(p, data) {
-  const rows = [data.before, data.after].map(([label, value, display], index) => {
-    const percent = 100 * value / data.before[1];
-    return `<div class="perf-row ${index ? "after" : ""}"><span>${label}</span><span class="perf-track" aria-hidden="true"><i style="width:${percent}%"></i></span><span class="perf-value">${display}</span></div>`;
-  }).join("");
-  return `<figure class="perf-summary"><figcaption><span>${data.title}</span><strong>${p.result}</strong></figcaption>${rows}<p class="perf-context">${data.scope}</p></figure>`;
+
+function comparison(study) {
+  const max = Math.max(...study.values);
+  const rows = study.values.map((value, i) => {
+    const display = value.toLocaleString('en-US', {maximumFractionDigits: 2});
+    return `<div class="perf-row ${i ? 'after' : ''}"><span>${study.labels[i]}</span><span class="perf-track" aria-hidden="true"><i style="width:${value / max * 100}%"></i></span><span class="perf-value">${display} ${study.unit}</span></div>`;
+  }).join('');
+  return `<figure class="study-metric"><figcaption><span>${study.metric}</span><strong>${study.gain}</strong></figcaption>${rows}<p>${study.scope}</p></figure>`;
 }
-function processDiagram(data) {
-  const steps = data.steps.map(([name, desc]) => `<li><b>${name}</b><span>${desc}</span></li>`).join("");
-  return `<div class="process-case"><p>${data.lead}</p><h4>${data.flowTitle}</h4><ol class="process-flow" aria-label="${data.flowTitle}">${steps}</ol><p class="case-observation"><b>${data.noteTitle}</b>${data.note}</p></div>`;
+
+function frustumDiagram() {
+  return `<figure class="frustum-map" role="img" aria-label="위에서 본 카메라 시야. 시야 안과 경계에 걸친 물체는 그리고, 시야에서 완전히 벗어난 물체만 제외합니다.">
+    <div class="frustum-stage" aria-hidden="true">
+      <div class="view-cone"></div><div class="camera-point"></div><small>카메라</small>
+      <span class="view-object inside">시야 안</span>
+      <span class="view-object boundary">경계</span>
+      <span class="view-object outside">시야 밖</span>
+    </div>
+    <figcaption aria-hidden="true"><span><i></i>렌더링</span><span><i class="excluded"></i>제외</span></figcaption>
+  </figure>`;
 }
-function caseHTML(p){if(projectCases[p.id]) return processDiagram(projectCases[p.id]);return '<div class="case-copy">'+p.paragraphs.map(text=>`<p>${text}</p>`).join('')+(p.culling?`<div class="case-reflection"><h4>프러스텀 컬링</h4><p>${p.culling}</p></div>`:'')+(p.reflection?`<div class="case-reflection"><h4>PhysX로 전환한 경험</h4><p>${p.reflection}</p></div>`:'')+(p.caseNote?`<p class="case-note">${p.caseNote}</p>`:'')+'</div>'}
-document.querySelector('#project-grid').innerHTML=projects.map(p=>`<article class="project-card" id="work-${p.id}" data-type="${p.type}">${thumb(p)}<div class="project-body"><span class="project-meta">${p.year} · ${p.team}</span><h3>${p.name}</h3><p>${p.desc}</p><p><b>담당</b> · ${p.role}</p><div class="project-techs">${miniTechs(p.type==='cs'?['Unity','C#']:(p.id==='maple'||p.id==='dark')?['DirectX 11','C++']:['C++'])}<span>${p.tech.filter(t=>!['C++','C#','Unity','Unity 3D','DirectX 11'].includes(t)).map(t=>`<span class="tag">${t}</span>`).join('')}</span></div><div class="quick">${link(p.video,p.service,'플레이 영상')}${link(p.git,'github',p.server?'클라이언트':'GitHub')}${p.server?link(p.server,'github','서버'):''}${p.id==='orbital'?link('https://wanghyesung.itch.io/orbital','itch','itch.io 공개 · 플레이'):''}</div>${p.result?`${projectCases[p.id] ? performanceChart(p, projectCases[p.id]) : `<div class="result"><span class="result-label">${p.resultLabel}</span><b>${p.result}</b><span class="result-measurement">${p.measurement}</span><small>${p.condition}</small>${p.cullingResult?`<div class="result-secondary"><span class="result-label">${p.cullingLabel}</span><b>${p.cullingResult}</b><span class="result-measurement">${p.cullingMeasurement}</span><small>${p.cullingCondition}</small></div>`:""}</div>`}<details class="case"><summary>${p.caseTitle}</summary>${caseHTML(p)}</details>`:''}</div></article>`).join('');
+
+function studyDetail(study) {
+  if (!study.detail) return '';
+  const detail = study.kind === 'grid'
+    ? '<p>반발력과 마찰이 필요 없는 탄환에는 도형의 겹침만 검사했습니다. Update 초반에 판정을 예약하고, 다른 갱신 작업을 진행한 뒤 LateUpdate 후반에 결과를 회수했습니다.</p>'
+    : '<ol><li>DirectX 클라이언트가 다음 맵의 텍스처와 오디오를 작업 큐에 등록합니다.</li><li>워커 4개가 파일을 읽는 동안 클라이언트는 로딩 화면을 표시합니다.</li><li>남은 작업이 0개가 되면 로딩을 마치고 IOCP 서버에 맵 입장을 알립니다.</li></ol>';
+  return `<details class="study-detail"><summary>${study.detail}</summary><div>${detail}</div></details>`;
+}
+
+function studiesHTML(p) {
+  return (projectStudies[p.id] || []).map(study => `<section class="project-study">
+    <h4>${study.title}</h4>
+    <dl><dt>문제</dt><dd>${study.problem}</dd><dt>해결</dt><dd>${study.solution}</dd></dl>
+    ${study.kind === 'frustum' ? frustumDiagram() : ''}
+    ${comparison(study)}
+    ${studyDetail(study)}
+  </section>`).join('');
+}
+document.querySelector('#project-grid').innerHTML=projects.map(p=>`<article class="project-card" id="work-${p.id}" data-type="${p.type}">${thumb(p)}<div class="project-body"><span class="project-meta">${p.year} · ${p.team}</span><h3>${p.name}</h3><p>${p.desc}</p><p><b>담당</b> · ${p.role}</p><div class="project-techs">${miniTechs(p.type==='cs'?['Unity','C#']:(p.id==='maple'||p.id==='dark')?['DirectX 11','C++']:['C++'])}<span>${p.tech.filter(t=>!['C++','C#','Unity','Unity 3D','DirectX 11'].includes(t)).map(t=>`<span class="tag">${t}</span>`).join('')}</span></div><div class="quick">${link(p.video,p.service,'플레이 영상')}${link(p.git,'github',p.server?'클라이언트':'GitHub')}${p.server?link(p.server,'github','서버'):''}${p.id==='orbital'?link('https://wanghyesung.itch.io/orbital','itch','itch.io 공개 · 플레이'):''}</div>${studiesHTML(p)}</div></article>`).join('');
 
 const stories=[{"n":"01","title":"개발 역량","id":"maple","paragraphs":["WinAPI·DirectX 기반 2D·3D 게임을 만들며 렌더링과 충돌 처리의 기본기를 다졌습니다.","IOCP 서버와 클라이언트를 직접 구현하며 싱글 플레이에서 멀티플레이로 개발 범위를 넓혔습니다.","프러스텀 컬링으로 화면 밖 객체의 렌더링을 제외하고, 병렬 로딩으로 리소스 로딩 시간을 약 75% 줄였습니다."],"topics":[{"keyword":"엔진 핵심 요소 구현","paragraphs":["WinAPI와 DirectX 기반 모작을 만들며 렌더링·충돌 처리 등 엔진의 핵심 요소를 직접 구현했습니다.","기능을 완성하는 데서 그치지 않고 동작 원리를 학습했습니다. 직접 구현할 부분과 라이브러리를 도입할 부분의 장단점을 비교하는 기본기를 쌓았습니다."]},{"keyword":"비동기 네트워크 학습","paragraphs":["기존 프로젝트는 싱글 플레이에 머물렀지만, 제가 즐겨온 게임은 여러 이용자가 함께 접속하는 환경이었습니다.","그 간극을 좁히고자 IOCP를 학습하고 서버와 클라이언트를 직접 구현했습니다. Transform 동기화와 스레드 동기화 문제를 추적하며 멀티플레이 구조를 익혔습니다."]},{"keyword":"렌더링·리소스 로딩 최적화","paragraphs":["다크소울 프로젝트에서 프러스텀 컬링을 적용해 카메라의 시야 밖 객체를 렌더링 대상에서 제외했습니다. 적용 전후를 비교한 장면에서 FPS가 28에서 36으로 향상됐습니다.","메이플스토리 프로젝트에서는 텍스처·오디오 로딩을 스레드 풀로 병렬 처리해 로딩 시간을 3,213ms에서 798ms로 약 75% 줄였습니다."]}]},{"n":"02","title":"협업 자세","id":"dark","paragraphs":["자체 충돌 처리를 유지하던 중 성능 문제가 생겼습니다. 처음에는 거절했던 동료의 PhysX 도입 제안을 다시 검토했습니다.","기능과 비용을 비교해 적용한 결과, 콜라이더 70개 환경에서 FPS가 약 39% 향상됐습니다.","제가 만든 방식보다 프로젝트에 적합한 선택을 우선하며, 동료의 의견을 기술적 근거와 함께 검토합니다."],"topics":[{"keyword":"동료의 제안 재검토","paragraphs":["처음에는 자체 OBB 충돌 처리가 정상 동작한다는 이유로 동료의 PhysX 도입 제안을 받아들이지 않았습니다.","개발 범위가 커지며 성능 문제가 드러나자 기존 방식의 한계를 인정했습니다. 동료의 제안을 다시 살펴보고, 직접 구현한 방식과 라이브러리 도입의 장단점을 비교했습니다."]},{"keyword":"PhysX 적용과 성능 개선","paragraphs":["기존 충돌 처리와 PhysX의 기능·비용을 비교하고 프로젝트에 적용했습니다. 충돌 이벤트를 게임 로직에 연결한 뒤 성능 변화를 확인했습니다.","콜라이더 70개 환경에서 FPS가 약 39% 향상됐습니다. 동료의 제안을 검토하고 구현과 측정으로 확인한 경험입니다."]},{"keyword":"근거를 바탕으로 의견 수용","paragraphs":["이 경험으로 정상 동작한다는 사실만으로 기존 방식이 최선이라고 판단할 수 없음을 배웠습니다.","제가 만든 코드에 대한 고집보다 프로젝트의 요구와 측정 결과를 우선합니다. 동료의 의견을 열린 자세로 검토하고, 제 생각도 기술적 근거와 함께 설명하려고 합니다."]}]},{"n":"03","title":"AI 활용","id":"orbital","paragraphs":["ORBITAL의 대량 탄막 환경에서 성능 병목을 확인하고, Claude로 낯선 기술과 개선 방향을 탐색했습니다.","AI의 제안은 측정으로 검증했습니다. 해시 기반 접근을 재검토하고 연속 데이터 배치와 CSR 구조를 선택했습니다.","AI는 탐색과 학습을 돕는 도구로 활용하며, 병목 분석·설계·최종 검증은 직접 책임집니다."],"topics":[{"keyword":"병목 원인 분석","paragraphs":["총알 4,000발·장애물 70개·몬스터 20마리 장면의 선택 프레임이 40.02ms였고, FixedUpdate가 2회 실행됐습니다. Profiler로 해당 구간을 확인했습니다.","반발·마찰 같은 물리 응답이 필요 없는 게임 특성을 고려해 PhysX를 자체 충돌 판정으로 대체하고, 공간 분할과 Burst Job을 적용했습니다."]},{"keyword":"AI 제안 검증","paragraphs":["Claude로 Burst·Job의 원리와 개선 후보를 탐색했습니다. 해시 기반 제안은 측정 결과를 바탕으로 다시 검토했습니다.","평균 O(1) 조회 성능만으로 선택하지 않고, Job에 전달하기 쉽고 연속 순회에 적합한 CSR 구조를 병렬화 단계에 적용했습니다. CSR만의 개선율은 따로 측정하지 않았습니다."]},{"keyword":"최종 판단과 책임","paragraphs":["AI에는 낯선 기술의 개념과 개선 방향을 물었고, 병목 분석·기술 선택·구조 설계·성능 검증은 직접 수행했습니다.","제안을 그대로 정답으로 받아들이지 않고 프로젝트의 데이터와 측정 결과로 확인했습니다. AI로 학습을 돕되 구현의 타당성과 결과는 개발자가 책임져야 한다고 생각합니다."]}]}];
 document.querySelector('#essays').innerHTML=stories.map(s=>`<article class="essay"><div class="number">${s.n}</div><h3>${s.title}</h3><div class="essay-copy">${s.paragraphs.map((p,i)=>{const t=s.topics[i];return `<div class="essay-paragraph-block"><p class="essay-overview">${p}</p><details class="essay-topic" name="essay-${s.id}"><summary><span class="topic-keyword">${t.keyword}</span><span class="topic-action"><span class="when-closed">자세히 보기</span><span class="when-open">접기</span><span class="topic-chevron" aria-hidden="true"></span></span></summary><div class="topic-content">${t.paragraphs.map(text=>`<p>${text}</p>`).join('')}</div></details></div>`;}).join('')}</div>${link('#'+s.id,'projects','관련 프로젝트')}</article>`).join('');
